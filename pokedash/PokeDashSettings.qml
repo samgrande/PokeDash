@@ -10,10 +10,10 @@ PluginSettings {
     SelectionSetting {
         settingKey: "selectedCritter"
         label: I18n.tr("Pokemon")
-        // Mirrors pokeDashGenerator.defaultRoster — keep entries in sync if you
-        // add/rename/remove critters in pokeDashGenerator.js.
-        options: RoamGen.pokeDashGenerator.rosterOptions()
-        defaultValue: RoamGen.pokeDashGenerator.defaultRoster[0].name
+        // Mirrors PokeDashGenerator.defaultRoster — keep entries in sync if you
+        // add/rename/remove critters in PokeDashGenerator.js.
+        options: RoamGen.PokeDashGenerator.rosterOptions()
+        defaultValue: RoamGen.PokeDashGenerator.defaultRoster[0].name
     }
 
     SelectionSetting {

@@ -13,7 +13,7 @@ DesktopPluginComponent {
 
     property real spriteScale: (pluginData.spriteScale ?? 100) / 100
     property string backgroundStyle: pluginData.backgroundStyle ?? "transparent"
-    property string selectedCritter: pluginData.selectedCritter ?? RoamGen.pokeDashGenerator.defaultRoster[0].name
+    property string selectedCritter: pluginData.selectedCritter ?? RoamGen.PokeDashGenerator.defaultRoster[0].name
 
     readonly property color bgColor: {
         if (backgroundStyle === "dms") return Theme.surfaceContainer
@@ -21,8 +21,8 @@ DesktopPluginComponent {
         return "transparent"
     }
 
-    readonly property var roster: RoamGen.pokeDashGenerator.defaultRoster
-    readonly property var activeCritter: RoamGen.pokeDashGenerator.getByName(root.selectedCritter, root.roster)
+    readonly property var roster: RoamGen.PokeDashGenerator.defaultRoster
+    readonly property var activeCritter: RoamGen.PokeDashGenerator.getByName(root.selectedCritter, root.roster)
 
     Rectangle {
         anchors.fill: parent
