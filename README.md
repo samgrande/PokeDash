@@ -13,7 +13,7 @@
 
 ## What is this?
 
-PokeDash is a lightweight desktop widget for **DankMaterialShell (DMS)** that shows a single 8-bit pokemon sitting quietly on your desktop. No walking, no chasing your cursor — just a small, idle companion with its own personality.
+PokeDash is a lightweight desktop widget for **DankMaterialShell (DMS)** that shows a single 8-bit pokemon sitting quietly on your desktop. 
 
 ## Features
 
@@ -33,15 +33,6 @@ PokeDash is a lightweight desktop widget for **DankMaterialShell (DMS)** that sh
    ```
 3. Add the **PokeDash** widget to your desktop from the DMS widget picker.
 
-## Files
-
-| File | Purpose |
-|---|---|
-| `plugin.json` | Plugin manifest |
-| `PokeDashWidget.qml` | Main widget — renders the selected pokemon |
-| `PokeDashSettings.qml` | Plugin settings panel |
-| `PokeDashGenerator.js` | pokemon roster + lookup logic |
-| `assets/screnshots/logo.png` | Widget logo |
 
 ## Requirements
 
