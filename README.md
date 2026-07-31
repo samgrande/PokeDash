@@ -25,13 +25,8 @@ PokeDash is a lightweight desktop widget for **DankMaterialShell (DMS)** that sh
 
 1. Copy the `pokeDash` folder to:
    ```
-   ~/.config/DankMaterialShell/plugins/pokeDash/
-   ```
-2. Restart DMS:
-   ```
-   systemctl --user restart dms
-   ```
-3. Add the **PokeDash** widget to your desktop from the DMS widget picker.
+
+dms plugins install pokeDash
 
 
 ## Requirements
