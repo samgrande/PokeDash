@@ -24,7 +24,7 @@ PokeDash is a lightweight desktop widget for **DankMaterialShell (DMS)** that sh
 ## Installation
 
 
-dms plugins install pokeDash
+'''dms plugins install pokeDash'''
 
 
 ## Requirements
