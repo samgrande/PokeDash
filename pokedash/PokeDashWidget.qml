@@ -8,12 +8,13 @@ import "PokeDashGenerator.js" as RoamGen
 DesktopPluginComponent {
     id: root
 
-    minWidth: 84
-    minHeight: 84
+    minWidth: 64
+    minHeight: 64
 
     property real spriteScale: (pluginData.spriteScale ?? 100) / 100
     property string backgroundStyle: pluginData.backgroundStyle ?? "transparent"
     property string selectedCritter: pluginData.selectedCritter ?? RoamGen.PokeDashGenerator.defaultRoster[0].name
+    property string spriteStyle: pluginData.spriteStyle ?? "normal"
 
     readonly property color bgColor: {
         if (backgroundStyle === "dms") return Theme.surfaceContainer
@@ -23,6 +24,7 @@ DesktopPluginComponent {
 
     readonly property var roster: RoamGen.PokeDashGenerator.defaultRoster
     readonly property var activeCritter: RoamGen.PokeDashGenerator.getByName(root.selectedCritter, root.roster)
+    readonly property string activeSpriteUrl: RoamGen.PokeDashGenerator.spriteUrl(root.activeCritter.dexId, root.spriteStyle)
 
     Rectangle {
         anchors.fill: parent
@@ -43,11 +45,12 @@ DesktopPluginComponent {
             height: root.activeCritter.frameH * 2 * root.spriteScale
 
             // --- Static single/multi-frame sprite sheet, idle stance only ---
+            // (kept for any future non-animated source; current roster is all GIFs)
             Image {
                 id: frameView
                 anchors.fill: parent
                 visible: !root.activeCritter.animated
-                source: root.activeCritter.animated ? "" : root.activeCritter.sheet
+                source: root.activeCritter.animated ? "" : root.activeSpriteUrl
                 fillMode: Image.Pad
                 sourceClipRect: Qt.rect(frameIndex * root.activeCritter.frameW, 0, root.activeCritter.frameW, root.activeCritter.frameH)
                 property int frameIndex: 0
@@ -55,7 +58,7 @@ DesktopPluginComponent {
                     loops: Animation.Infinite
                     running: !root.activeCritter.animated
                     PauseAnimation { duration: 200 }
-                    ScriptAction { script: frameView.frameIndex = (frameView.frameIndex + 1) % Math.max(1, root.activeCritter.frames) }
+                    ScriptAction { script: frameView.frameIndex = (frameView.frameIndex + 1) % Math.max(1, root.activeCritter.frames ?? 1) }
                 }
             }
 
@@ -64,7 +67,7 @@ DesktopPluginComponent {
                 id: gifView
                 anchors.fill: parent
                 visible: root.activeCritter.animated
-                source: root.activeCritter.animated ? root.activeCritter.sheet : ""
+                source: root.activeCritter.animated ? root.activeSpriteUrl : ""
             }
         }
     }

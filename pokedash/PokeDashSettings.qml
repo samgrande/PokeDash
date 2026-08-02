@@ -17,6 +17,13 @@ PluginSettings {
     }
 
     SelectionSetting {
+        settingKey: "spriteStyle"
+        label: I18n.tr("Sprite Style")
+        options: RoamGen.PokeDashGenerator.spriteStyles
+        defaultValue: "normal"
+    }
+
+    SelectionSetting {
         settingKey: "backgroundStyle"
         label: I18n.tr("Background Style")
         options: [
